@@ -4,7 +4,7 @@ services:
     runtime: node
     branch: main
     rootDirectory: ./server
-    buildCommand: npm install
+    buildCommand: cd server && npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV

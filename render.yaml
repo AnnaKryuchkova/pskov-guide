@@ -5,10 +5,13 @@ services:
     branch: main
     rootDirectory: server # Без "./" в начале!
     buildCommand: |
-      echo "### Debug ###" &&
-      ls -la &&
-      cd server &&
-      npm install
+      echo "### Debug: Current directory ###" &&
+        pwd &&
+        ls -la &&
+        echo "### Debug: Server directory ###" &&
+        ls -la /opt/render/project/src/server &&
+        cd /opt/render/project/src/server &&
+        npm install --verbose
     startCommand: npm start
     envVars:
       - key: NODE_ENV

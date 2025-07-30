@@ -5,11 +5,8 @@ services:
     branch: main
     rootDirectory: server # Без "./" в начале!
     buildCommand: |
-      echo "### Debug: Current directory ###" &&
-      ls -la &&
-      echo "### Debug: Server directory ###" &&
-      ls -la server/ &&
-      exit 1  # Принудительно завершить с ошибкой, чтобы увидеть логи
+      cd ./server || { echo "ERROR: Server directory not found!"; exit 1; }
+      npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV

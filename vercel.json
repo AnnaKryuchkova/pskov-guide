@@ -1,5 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "cd client && npm run build",
-  "installCommand": "cd client && npm install"
+  "installCommand": "cd client && npm install",
+  "builds": [
+    {
+      "src": "client/vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "outputDirectory": "client/dist"
+      }
+    }
+  ]
 }

@@ -3,7 +3,7 @@ services:
     name: pskov-guide-server
     runtime: node
     branch: main
-    rootDirectory: server # Без "./" в начале!
+    rootDirectory: /server # Без "./" в начале!
     buildCommand: |
       echo "### Debug: Current directory ###" &&
       ls -la &&

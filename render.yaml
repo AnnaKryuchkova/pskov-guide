@@ -3,15 +3,15 @@ services:
     name: pskov-guide-server
     runtime: node
     branch: main
-    rootDirectory: server # Без "./" в начале!
+    rootDirectory: server
     buildCommand: |
-      echo "### Debug: Current directory ###" &&
-        pwd &&
-        ls -la &&
-        echo "### Debug: Server directory ###" &&
-        ls -la /opt/render/project/src/server &&
-        cd /opt/render/project/src/server &&
-        npm install --verbose
+      echo "### Debug: Current directory ###"
+      pwd
+      ls -la
+      echo "### Debug: Server directory ###"
+      ls -la /opt/render/project/src/server
+      cd /opt/render/project/src/server
+      npm install --verbose
     startCommand: npm start
     envVars:
       - key: NODE_ENV

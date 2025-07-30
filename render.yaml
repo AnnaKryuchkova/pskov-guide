@@ -3,7 +3,7 @@ services:
     name: pskov-guide-server
     runtime: node
     branch: main
-    rootDirectory: server
+    rootDirectory: ./server
     buildCommand: npm install
     startCommand: npm start
     envVars:

@@ -3,7 +3,7 @@ services:
     name: pskov-guide-server
     runtime: node
     branch: main
-    rootDirectory: ./ # Изменено с 'server' на './'
+    rootDirectory: ./server # Изменено с 'server' на './'
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -20,6 +20,6 @@ databases:
   - name: pskov-db
     databaseName: guide_yqsg
     user: anya
-    password: ${DB_PASSWORD} # Рекомендуется использовать Secrets
+    password: 68QlYiLJFahm5ROi5SLINEgrTUC1c1an # Рекомендуется использовать Secrets
     plan: free
     region: oregon

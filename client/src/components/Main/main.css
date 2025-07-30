@@ -1,0 +1,46 @@
+.main-container {
+  position: center;
+  padding: 30px 40px;
+  border-radius: 70px;
+  margin: 20px auto;
+  content: unset;
+  background: rgba(255, 255, 255, 0.172);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+
+  box-shadow: 0 2px 22px rgb(43, 70, 223);
+
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  background-blend-mode: darken;
+}
+
+.main-container:hover {
+  transform: perspective(500px) translateZ(20px);
+  box-shadow:
+    0 12px 40px rgba(254, 254, 254, 0.519),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.705);
+}
+
+/* .main-container-cards {
+  justify-content: first baseline;
+  padding: 30px 40px;
+  border-radius: 70px;
+  content: unset;
+  box-shadow: 0 2px 22px rgb(43, 70, 223);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main-container-cards:hover {
+  transform: perspective(500px) translateZ(20px);
+  box-shadow:
+    0 12px 40px rgba(254, 254, 254, 0.519),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.705);
+} */
+
+.buttonNav {
+  background-color: rgb(90, 85, 85) !important;
+  float: right;
+}

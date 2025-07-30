@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: pskov-guide-server
+    runtime: node
+    env: node
+    branch: main
+    rootDirectory: server # Указываем папку с сервером
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_USERNAME
+        value: anya
+      - key: DB_PASSWORD
+        value: qwerty1 # Замените на реальный пароль!
+      - key: DB_DATABASE
+        value: finalProject
+      - key: DB_HOST
+        value: your-postgres-host # Замените на хост БД (см. пояснение ниже)
+      - key: JWT_SECRET
+        generateValue: true # Render сгенерирует случайный ключ
+
+databases:
+  - name: pskov-db
+    databaseName: finalProject
+    user: anya
+    plan: free # Бесплатный тариф

@@ -2,9 +2,8 @@ services:
   - type: web
     name: pskov-guide-server
     runtime: node
-    env: node
     branch: main
-    rootDirectory: server
+    rootDirectory: ./ # Изменено с 'server' на './'
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -16,29 +15,11 @@ services:
         value: postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg
       - key: JWT_SECRET
         generateValue: true
-      - key: ALLOWED_IPS # Для ограничения доступа к API если нужно
-        value: "44.229.227.142,54.188.71.94,52.13.128.108"
-
-    # Настройки сети
-    network:
-      outboundIPs: # Можно явно указать IP (опционально)
-        - 44.229.227.142
-        - 54.188.71.94
-        - 52.13.128.108
 
 databases:
   - name: pskov-db
     databaseName: guide_yqsg
     user: anya
-    password: 68QlYiLJFahm5ROi5SLINEgrTUC1c1an
+    password: ${DB_PASSWORD} # Рекомендуется использовать Secrets
     plan: free
     region: oregon
-
-    # Настройки безопасности
-    firewallRules:
-      - name: allow-server-ips
-        ip: 44.229.227.142/32
-      - name: allow-server-ips-2
-        ip: 54.188.71.94/32
-      - name: allow-server-ips-3
-        ip: 52.13.128.108/32

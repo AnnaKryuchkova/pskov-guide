@@ -5,6 +5,7 @@
 //   console.log(`Server started on port: ${PORT}`);
 //   console.log(`Uploads available at: http://localhost:${PORT}/uploads/`);
 // });
+
 const app = require('./app');
 const PORT = process.env.PORT || 3000;
 

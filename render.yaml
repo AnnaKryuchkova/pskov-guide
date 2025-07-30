@@ -3,13 +3,13 @@ services:
     name: pskov-guide-server
     runtime: node
     branch: main
-    rootDirectory: /server # Без "./" в начале!
+    rootDirectory: server # Без "./" в начале!
     buildCommand: |
       echo "### Debug: Current directory ###" &&
       ls -la &&
       echo "### Debug: Server directory ###" &&
       ls -la server/ &&
-      npm install
+      exit 1  # Принудительно завершить с ошибкой, чтобы увидеть логи
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -20,11 +20,3 @@ services:
         value: postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg
       - key: JWT_SECRET
         generateValue: true
-
-databases:
-  - name: pskov-db
-    databaseName: guide_yqsg
-    user: anya
-    password: 68QlYiLJFahm5ROi5SLINEgrTUC1c1an # Рекомендуется использовать Secrets
-    plan: free
-    region: oregon

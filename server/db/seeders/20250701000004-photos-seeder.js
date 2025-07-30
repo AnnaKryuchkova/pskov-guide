@@ -21,7 +21,8 @@ module.exports = {
           iso: 400,
           focalLength: '50mm',
         }),
-        fullUrl: 'http://localhost:3000/uploads/photos-1753191377603-328367354.jpg',
+        fullUrl:
+          'https://pskov-guide.onrender.com/uploads/photos-1753191377603-328367354.jpg',
         originalName: 'felix-interior.jpg',
         fileSize: 1024567,
         mimeType: 'image/jpeg',
@@ -44,7 +45,8 @@ module.exports = {
           iso: 400,
           focalLength: '50mm',
         }),
-        fullUrl: 'http://localhost:3000/uploads/photos-1753191377615-158020525.jpg',
+        fullUrl:
+          'https://pskov-guide.onrender.com/uploads/photos-1753191377615-158020525.jpg',
         originalName: 'felix-exterior.jpg',
         fileSize: 876543,
         mimeType: 'image/jpeg',
@@ -69,7 +71,8 @@ module.exports = {
           iso: 400,
           focalLength: '50mm',
         }),
-        fullUrl: 'http://localhost:3000/uploads/photos-1753191389379-824027024.jpg',
+        fullUrl:
+          'https://pskov-guide.onrender.com/uploads/photos-1753191389379-824027024.jpg',
         originalName: 'cinema-hall.jpg',
         fileSize: 1234567,
         mimeType: 'image/jpeg',
@@ -94,7 +97,8 @@ module.exports = {
           iso: 400,
           focalLength: '50mm',
         }),
-        fullUrl: 'http://localhost:3000/uploads/photos-1753191389394-38508052.jpg',
+        fullUrl:
+          'https://pskov-guide.onrender.com/uploads/photos-1753191389394-38508052.jpg',
         originalName: 'bar-friends.jpg',
         fileSize: 2345678,
         mimeType: 'image/jpeg',
@@ -119,7 +123,8 @@ module.exports = {
           iso: 400,
           focalLength: '50mm',
         }),
-        fullUrl: 'http://localhost:3000/uploads/photos-1753192225438-265011430.JPG',
+        fullUrl:
+          'https://pskov-guide.onrender.com/uploads/photos-1753192225438-265011430.JPG',
         originalName: 'new-place-proposal.jpg',
         fileSize: 987654,
         mimeType: 'image/jpeg',

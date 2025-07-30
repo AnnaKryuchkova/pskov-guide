@@ -4,7 +4,7 @@ services:
     runtime: node
     env: node
     branch: main
-    rootDirectory: server # Указываем папку с сервером
+    rootDirectory: server
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -12,19 +12,33 @@ services:
         value: production
       - key: PORT
         value: 3000
-      - key: DB_USERNAME
-        value: anya
-      - key: DB_PASSWORD
-        value: qwerty1 # Замените на реальный пароль!
-      - key: DB_DATABASE
-        value: finalProject
-      - key: DB_HOST
-        value: your-postgres-host # Замените на хост БД (см. пояснение ниже)
+      - key: DATABASE_URL
+        value: postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg
       - key: JWT_SECRET
-        generateValue: true # Render сгенерирует случайный ключ
+        generateValue: true
+      - key: ALLOWED_IPS # Для ограничения доступа к API если нужно
+        value: "44.229.227.142,54.188.71.94,52.13.128.108"
+
+    # Настройки сети
+    network:
+      outboundIPs: # Можно явно указать IP (опционально)
+        - 44.229.227.142
+        - 54.188.71.94
+        - 52.13.128.108
 
 databases:
   - name: pskov-db
-    databaseName: finalProject
+    databaseName: guide_yqsg
     user: anya
-    plan: free # Бесплатный тариф
+    password: 68QlYiLJFahm5ROi5SLINEgrTUC1c1an
+    plan: free
+    region: oregon
+
+    # Настройки безопасности
+    firewallRules:
+      - name: allow-server-ips
+        ip: 44.229.227.142/32
+      - name: allow-server-ips-2
+        ip: 54.188.71.94/32
+      - name: allow-server-ips-3
+        ip: 52.13.128.108/32

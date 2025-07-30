@@ -1,5 +1,5 @@
 {
-  "rootDirectory": "client",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "cd client && npm run build",
   "installCommand": "cd client && npm install"
 }

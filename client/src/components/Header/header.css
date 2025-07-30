@@ -1,0 +1,48 @@
+.header {
+  border-radius: 70px;
+  height: 56px;
+  margin: 20px auto 20px;
+  background-color: var(--mantine-color-body);
+  /* border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+  max-width: 800px;
+  display: flex; /* Добавляем flex для центрирования содержимого */
+  align-items: center; /* Вертикальное центрирование содержимого */
+  justify-content: center; /* Горизонтальное центрирование содержимого */
+  width: 100%; /* Занимает всю доступную ширину */
+  position: relative; /* Для позиционирования */
+  background: rgba(255, 255, 255, 0.172);
+  backdrop-filter: blur(1px);
+}
+
+.inner {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: 70px;
+  text-decoration: none;
+  color: white;
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-mantine-color-scheme] .link[data-active] {
+  background: rgba(255, 255, 255, 0.172);
+  backdrop-filter: blur(1px);
+  color: var(--mantine-color-white);
+}
+
+.logo {
+  width: 40px;
+  margin: 14px;
+}

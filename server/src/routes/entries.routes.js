@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User, Category, Place, Photo, Like, NotPlace } = require('../../db/models');
 const JWT_SECRET = process.env.JWT_SECRET || 'your-very-secure-secret-key';

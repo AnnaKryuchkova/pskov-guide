@@ -5,7 +5,9 @@ services:
     branch: main
     rootDirectory: server # Без "./" в начале!
     buildCommand: |
-      cd ./server || { echo "ERROR: Server directory not found!"; exit 1; }
+      echo "### Debug ###" &&
+      ls -la &&
+      cd server &&
       npm install
     startCommand: npm start
     envVars:

@@ -1,0 +1,3 @@
+git add server/
+git commit -m "Add server directory"
+git push origin main

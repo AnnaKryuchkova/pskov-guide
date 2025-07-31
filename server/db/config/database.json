@@ -1,16 +1,26 @@
 {
   "development": {
     "username": "anya",
-    "password": "qwerty1",
-    "database": "finalProject",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "password": "68QlYiLJFahm5ROi5SLINEgrTUC1c1an",
+    "database": "guide_yqsg",
+    "host": "dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "dialectOptions": {
-      "ssl": true
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     }
   }
 }

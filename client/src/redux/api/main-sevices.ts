@@ -21,8 +21,7 @@ import {
 export const mainApi = createApi({
   reducerPath: 'mainApi',
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      'postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg',
+    baseUrl: 'https://pskov-guide.onrender.com/api',
     credentials: 'include',
   }),
   tagTypes: ['main', 'Like', 'User'],

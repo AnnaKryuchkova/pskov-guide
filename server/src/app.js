@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/api', entriesRouter);
-
+app.options('*', cors());
 app.use(
   cors({
     origin: [

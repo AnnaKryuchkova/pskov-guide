@@ -19,11 +19,12 @@ import {
 } from './endpoint';
 
 const authResponseHandler = async (response: any) => {
-  const data = await response.json();
-  if (data.token) {
-    localStorage.setItem('token', data.token);
+  console.log('response', response);
+
+  if (response.token) {
+    localStorage.setItem('token', response.token);
   }
-  return data;
+  return response;
 };
 
 export const mainApi = createApi({

@@ -2,8 +2,9 @@ services:
   - type: web
     name: pskov-guide-server
     runtime: node
+    # startCommand: node init-db.js && npm start
+    startCommand: npm start
     branch: main
-    startCommand: node init-db.js && npm start
     envVars:
       - key: NODE_ENV
         value: production

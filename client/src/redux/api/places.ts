@@ -20,8 +20,7 @@ import {
 export const placeApi = createApi({
   reducerPath: 'placeApi',
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      'postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg',
+    baseUrl: 'pskov-guide.onrender.com',
     credentials: 'include',
   }),
   tagTypes: ['Like', 'Place', 'NotPlace'],

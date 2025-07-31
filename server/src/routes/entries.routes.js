@@ -64,22 +64,22 @@ router.post('/register', async (req, res) => {
     );
 
     // Установка токена в куки
+
     res.cookie('jwt', token, {
       httpOnly: true,
-      // secure: process.env.NODE_ENV === 'production',
-      secure: true,
+      secure: process.env.NODE_ENV === 'production', // Включить в production
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
-      sameSite: 'none',
-      domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : 'localhost',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : undefined,
     });
 
     // Формирование ответа без пароля
     const userData = user.get({ plain: true });
     delete userData.password;
 
-    res.status(201).json({
+    res.json({
       success: true,
-      message: 'Пользователь успешно зарегистрирован',
+      token, // Дублируем токен в теле ответа
       user: userData,
     });
   } catch (error) {
@@ -166,10 +166,13 @@ router.post('/login', async (req, res) => {
 
     // Установка токена в куки
     res.cookie('jwt', token, {
-      httpOnly: true,
       // secure: process.env.NODE_ENV === 'production',
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
       sameSite: 'strict',
+    });
+    res.json({
+      success: true,
+      token, // Дублируем токен в теле ответа
     });
 
     // Не возвращаем пароль в ответе

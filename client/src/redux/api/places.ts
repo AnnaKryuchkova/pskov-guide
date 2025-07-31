@@ -22,6 +22,14 @@ export const placeApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://pskov-guide.onrender.com/api',
     credentials: 'include',
+    prepareHeaders: (headers) => {
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('token');
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   tagTypes: ['Like', 'Place', 'NotPlace'],
   endpoints: (builder) => ({

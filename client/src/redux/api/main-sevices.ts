@@ -18,11 +18,27 @@ import {
   UPDATEUSER_URL,
 } from './endpoint';
 
+const authResponseHandler = async (response: any) => {
+  const data = await response.json();
+  if (data.token) {
+    localStorage.setItem('token', data.token);
+  }
+  return data;
+};
+
 export const mainApi = createApi({
   reducerPath: 'mainApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://pskov-guide.onrender.com/api',
     credentials: 'include',
+    prepareHeaders: (headers) => {
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('token');
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
 
   tagTypes: ['main', 'Like', 'User'],
@@ -33,6 +49,7 @@ export const mainApi = createApi({
         method: 'POST',
         body,
       }),
+      transformResponse: authResponseHandler,
     }),
     login: builder.mutation<LoginApiResponse, LoginApiProps>({
       query: (body) => ({
@@ -40,6 +57,7 @@ export const mainApi = createApi({
         method: 'POST',
         body,
       }),
+      transformResponse: authResponseHandler,
     }),
     logout: builder.mutation<LogoutApiResponse, void>({
       query: () => ({
@@ -47,6 +65,14 @@ export const mainApi = createApi({
         method: 'POST',
         invalidatesTags: ['User'],
       }),
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          await queryFulfilled;
+          localStorage.removeItem('token');
+        } catch (error) {
+          console.error('Logout failed:', error);
+        }
+      },
     }),
     getUser: builder.query<UserResponse, UserProps>({
       query: (params) => ({

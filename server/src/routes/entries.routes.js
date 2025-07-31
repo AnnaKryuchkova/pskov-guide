@@ -26,7 +26,16 @@ const upload = multer({
 
 // Middleware для проверки JWT токена22
 const authenticateJWT = (req, res, next) => {
-  const token = req.cookies.jwt;
+  // Check for token in cookies first
+  let token = req.cookies.jwt;
+
+  // If not in cookies, check Authorization header
+  if (!token && req.headers.authorization) {
+    const authHeader = req.headers.authorization;
+    if (authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
+    }
+  }
 
   if (token) {
     jwt.verify(token, JWT_SECRET, (err, decoded) => {

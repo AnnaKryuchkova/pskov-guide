@@ -6,7 +6,7 @@ const cors = require('cors');
 const config = (app) => {
   app.use(
     cors({
-      origin: 'https://pskov-guide-git-main-annakryuchkovas-projects.vercel.app/', // URL вашего фронтенда
+      origin: 'https://pskov-guide.vercel.app/', // URL вашего фронтенда
       credentials: true, // Разрешаем передачу кук
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Разрешенные методы
       allowedHeaders: ['Content-Type', 'Authorization'], // Разрешенные заголовки

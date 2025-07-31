@@ -66,7 +66,7 @@ router.post('/register', async (req, res) => {
     // Установка токена в куки
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      // secure: process.env.NODE_ENV === 'production',
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
       sameSite: 'strict',
     });
@@ -165,7 +165,7 @@ router.post('/login', async (req, res) => {
     // Установка токена в куки
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      // secure: process.env.NODE_ENV === 'production',
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
       sameSite: 'strict',
     });

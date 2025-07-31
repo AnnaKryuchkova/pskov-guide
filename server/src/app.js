@@ -19,10 +19,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/api', entriesRouter);
+
 app.use(
   cors({
-    origin: ['https://your-frontend-url.vercel.app'],
+    origin: 'https://pskov-guide.vercel.app',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['set-cookie'], // Добавьте это
   }),
 );
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 module.exports = app;

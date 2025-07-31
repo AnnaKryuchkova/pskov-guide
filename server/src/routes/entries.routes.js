@@ -179,16 +179,16 @@ router.post('/login', async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
       sameSite: 'strict',
     });
-    res.json({
-      success: true,
-      token, // Дублируем токен в теле ответа
-    });
 
     // Не возвращаем пароль в ответе
     const userData = user.get({ plain: true });
     delete userData.password;
 
-    res.json(userData);
+    res.json({
+      success: true,
+      token,
+      user: userData, // Дублируем токен в теле ответа
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error' });

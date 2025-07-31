@@ -25,6 +25,7 @@ app.use(
     origin: [
       'https://pskov-guide.vercel.app',
       'http://localhost:3000', // для разработки
+      'http://localhost:5173',
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

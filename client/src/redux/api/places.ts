@@ -19,10 +19,7 @@ import {
 
 export const placeApi = createApi({
   reducerPath: 'placeApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'pskov-guide.onrender.com',
-    credentials: 'include',
-  }),
+  baseQuery: fetchBaseQuery({ baseUrl: '/api', credentials: 'include' }),
   tagTypes: ['Like', 'Place', 'NotPlace'],
   endpoints: (builder) => ({
     addLike: builder.mutation<{ message: string }, { placeId: number }>({

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "prestart": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "npm run db:reset && NODE_ENV=development jest -i",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "child_process": "^1.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",

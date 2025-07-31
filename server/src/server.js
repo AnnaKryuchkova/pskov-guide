@@ -9,6 +9,18 @@
 const app = require('./app');
 const PORT = process.env.PORT || 3000;
 
+const { execSync } = require('child_process');
+
+// Выполняем миграции перед стартом сервера
+try {
+  console.log('Running database migrations...');
+  execSync('npx sequelize-cli db:migrate', { stdio: 'inherit' });
+  console.log('Migrations completed successfully');
+} catch (error) {
+  console.error('Migration failed:', error);
+  process.exit(1);
+}
+
 app.listen(PORT, '0.0.0.0', () => {
   // Явно указываем хост
   console.log(`Server started on port: ${PORT}`);

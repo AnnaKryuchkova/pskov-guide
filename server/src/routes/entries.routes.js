@@ -67,8 +67,10 @@ router.post('/register', async (req, res) => {
     res.cookie('jwt', token, {
       httpOnly: true,
       // secure: process.env.NODE_ENV === 'production',
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 часа
-      sameSite: 'strict',
+      sameSite: 'none',
+      domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : 'localhost',
     });
 
     // Формирование ответа без пароля

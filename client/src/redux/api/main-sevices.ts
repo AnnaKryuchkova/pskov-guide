@@ -24,6 +24,7 @@ export const mainApi = createApi({
     baseUrl: 'https://pskov-guide.onrender.com/api',
     credentials: 'include',
   }),
+
   tagTypes: ['main', 'Like', 'User'],
   endpoints: (builder) => ({
     postRegistration: builder.mutation<RegistrationResponse, RegistrationApiProps>({

@@ -22,15 +22,22 @@ app.use('/api', entriesRouter);
 
 app.use(
   cors({
-    origin: 'https://pskov-guide.vercel.app',
+    origin: [
+      'https://pskov-guide.vercel.app',
+      'http://localhost:3000', // для разработки
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: ['set-cookie'], // Добавьте это
   }),
 );
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
 

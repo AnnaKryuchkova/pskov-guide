@@ -3,7 +3,7 @@ export const LOGIN_URL = '/login';
 export const USER_URL = '/me';
 export const CATEGORY_URL = '/category';
 export const PLACE_URL = '/place';
-
+export const API_URL = 'https://pskov-guide-backend.onrender.com';
 export const LOGOUT_URL = '/logout';
 export const UPDATEUSER_URL = '/update-user';
 export const LIKE_URL = '/like';

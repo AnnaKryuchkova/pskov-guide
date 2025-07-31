@@ -19,7 +19,11 @@ import {
 
 export const placeApi = createApi({
   reducerPath: 'placeApi',
-  baseQuery: fetchBaseQuery({ baseUrl: '/api', credentials: 'include' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl:
+      'postgresql://anya:68QlYiLJFahm5ROi5SLINEgrTUC1c1an@dpg-d252nde3jp1c73dt91mg-a.oregon-postgres.render.com/guide_yqsg',
+    credentials: 'include',
+  }),
   tagTypes: ['Like', 'Place', 'NotPlace'],
   endpoints: (builder) => ({
     addLike: builder.mutation<{ message: string }, { placeId: number }>({
